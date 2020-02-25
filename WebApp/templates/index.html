@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+	<!--- basic page needs
+   ================================================== -->
+	<meta charset="utf-8">
+	<title>Data2Dimensions</title>
+	<meta name="description" content="">
+	<meta name="author" content="Sayantan Paul">
+
+	<!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+   ================================================== -->
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/vendor.css">
+
+
+
+	<script type="text/javascript">
+		var _paq = _paq || [];
+		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+		_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+		_paq.push(['trackPageView']);
+		_paq.push(['enableLinkTracking']);
+		(function () {
+			var u = "//data2dimensions.com/piwik/";
+			_paq.push(['setTrackerUrl', u + 'piwik.php']);
+			_paq.push(['setSiteId', '1']);
+			var d = document,
+				g = d.createElement('script'),
+				s = d.getElementsByTagName('script')[0];
+			g.type = 'text/javascript';
+			g.async = true;
+			g.defer = true;
+			g.src = u + 'piwik.js';
+			s.parentNode.insertBefore(g, s);
+		})();
+	</script>
+
+
+	<!-- script
+   ================================================== 
+	<script src="js/modernizr.js"></script> -->
+
+	<script>
+		var display = setInterval(function () {
+			Time()
+		}, 0);
+
+		tday = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+		tmonth = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+
+		function GetClock() {
+			var d = new Date();
+			var nday = d.getDay(),
+				nmonth = d.getMonth(),
+				ndate = d.getDate(),
+				nyear = d.getFullYear();
+			var nhour = d.getHours(),
+				nmin = d.getMinutes(),
+				nsec = d.getSeconds(),
+				ap;
+
+			/*if(nhour==0){ap=" AM";nhour=12;}
+			else if(nhour<12){ap=" AM";}
+			else if(nhour==12){ap=" PM";}
+			else if(nhour>12){ap=" PM";nhour-=12;}*/
+
+			if (nmin <= 9) nmin = "0" + nmin;
+			if (nsec <= 9) nsec = "0" + nsec;
+
+			//document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+			//document.getElementById('clockbox').innerHTML=""+ndate+'<sup>'+tmonth[nmonth]+'</sup>'+" "+nhour+'<sup>'+"Hours "+'</sup>'+nmin+'<sup>'+"Mins "+'</sup>'+nsec+'<sup>'+"Sec"+'</sup>';
+			document.getElementById('clockbox').innerHTML = " " + ndate;
+			document.getElementById('clockbox4').innerHTML = " " + tmonth[nmonth];
+			document.getElementById('clockbox1').innerHTML = " " + nhour;
+			document.getElementById('clockbox2').innerHTML = " " + nmin;
+			document.getElementById('clockbox3').innerHTML = " " + nsec;
+
+		}
+
+		window.onload = function () {
+			GetClock();
+			setInterval(GetClock, 1000);
+		}
+	</script>
+	<script>
+		var vid = document.getElementById("bgvid");
+		/*var pauseButton = document.querySelector("#polina button");*/
+
+		if (window.matchMedia('(prefers-reduced-motion)').matches) {
+			vid.removeAttribute("autoplay");
+			vid.pause();
+			/*	pauseButton.innerHTML = "Paused"; */
+		}
+
+		function vidFade() {
+			vid.classList.add("stopfade");
+		}
+
+		vid.addEventListener('ended', function () {
+			// only functional if "loop" is removed 
+			vid.pause();
+			// to capture IE10
+			vidFade();
+		});
+	</script>
+
+	<script>
+
+	</script>
+
+	<style>
+		@media only screen and (max-width:400px) {
+			.frame {
+				width: 95vw;
+			}
+		}
+
+		video {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -100;
+			transform: translateX(-50%) translateY(-50%);
+			background: url('images/slides070.jpg') no-repeat;
+			background-size: cover;
+			transition: 1s opacity;
+		}
+
+		.stopfade {
+			opacity: .5;
+		}
+	</style>
+
+	<!-- favicons
+	================================================== -->
+	<link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+
+<body id="top">
+
+	<!-- header 
+   ================================================== -->
+	<header>
+
+		<div class="row">
+			<div class="logo">
+				<a href="../index_home.php">Data2Dimensions</a>
+			</div>
+
+			<div class="social-links">
+				<ul>
+					<li><a href="https://www.facebook.com/Data2Dimensions/"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="https://www.instagram.com/data2dimensions/"><i class="fa fa-instagram"></i></a></li>
+					<li><a href="https://www.linkedin.com/company/13298047/"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="https://www.instagram.com/data2dimensions/"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="https://www.youtube.com/channel/UCNw367RxRnsW0QeTn-HpDsA"><i
+								class="fa fa-youtube"></i></a></li>
+
+
+				</ul>
+			</div>
+		</div>
+
+	</header> <!-- /header -->
+
+
+	<!-- home
+   ================================================== -->
+	<section id="home" style="overflow: hidden;">
+		<!--  class="home-slides" -->
+		<video poster="images/slides/people.jpg" id="bgvid" playsinline autoplay muted loop style="object-fit: cover;">
+			<!--source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm"-->
+			<source src="video/ML.mp4" type="video/mp4">
+		</video>
+
+		<div class="shadow-overlay"></div>
+
+
+		<div class="content-wrap-table">
+
+			<div class="main-content-tablecell">
+
+				<div class="row">
+					<div class="col-twelve">
+
+
+						<div id="clockbox12" style="width:100%; margin-top: 180px;">
+
+							<div style="float: left; padding: 10px;">
+								<span id="clockbox"
+									style="font-size: 65px; color: #ffffff; font-family: Cambria; font-weight: bold; width: 100%">
+								</span><sup><span id="clockbox4"
+										style="font-size: 15px; color: gray; font-family: Cambria; width: 100%;"></span></sup>
+							</div>
+							<div style="float: left; padding: 10px;">
+								<span id="clockbox1"
+									style="font-size: 65px; color: #ffffff; font-family: Cambria; font-weight: bold; padding: 0px 0px 0px 0px; width: 100%">
+								</span><sup
+									style="font-size: 15px; color: gray; font-family: Cambria; vertical-align: sub">
+									Hours</sup>
+							</div>
+							<div style="float: left; padding: 10px;">
+								<span id="clockbox2"
+									style="font-size: 65px; color: #ffffff; font-family: Cambria; font-weight: bold; padding: 20px 0px 0px 0px; width: 100%">
+								</span><sup
+									style="font-size: 15px; color:gray; font-family: Cambria; vertical-align: sub">
+									Mins</sup>
+							</div>
+							<div style="float: left; padding: 10px;">
+								<span id="clockbox3"
+									style="font-size: 65px; color: #ffffff; font-family: Cambria; font-weight: bold; padding: 20px 0px 0px 0px; width: 100%">
+								</span><sup
+									style="font-size: 15px; color: gray; font-family: Cambria; vertical-align: sub">
+									Secs</sup>
+							</div>
+							<!-- <div class="half">
+		   					<span>334 <sup>days</sup></span> 
+		 						<span>23 <sup>hours</sup></span>
+		   				</div> 
+							<div class="half">
+								<span>50 <sup>mins</sup></span>
+		 						<span>33 <sup>secs</sup></span>
+		 					</div> -->
+						</div>
+
+
+						<div class="bottom-text" style="clear: both; float: left;">
+							<br>
+							<h1 style="font-size: 20pt;">Actionable Data Intelligence</h1>
+							<p style="color: #00FF00;max-width: 750px;">
+								Augment sucess in solving problematic healthcare challenges to emulate 
+								 <br>human cognition in the analysis of complicated medical data.
+								<br><br>
+								<a href="malaria.html" class="btnn btnn--flat"
+									style="font-size: 10pt; color:#00FF00;">
+									Malaria Cell Analysis
+								</a>
+
+								<a href="brain.html" target="_blank" class="btnn btnn--flat"
+									style="font-size: 10pt; color:#00FF00;">
+									Brain Tumor Analysis
+								</a>
+
+								<a href="pnm.html" target="_blank" class="btnn btnn--flat"
+									style="font-size: 10pt; color:#00FF00;">
+									Chest Xray Analysis
+								</a>
+								
+
+								<br><br>
+
+								<a href="retino.html" target="_blank" class="btnn btnn--flat"
+									style="font-size: 9pt; color:#00FF00;">
+									Diabetic Retinopathy
+								</a>
+
+								<a href="oct.html" target="_blank" class="btnn btnn--flat"
+									style="font-size: 9pt; color:#00FF00;">
+									Optical Coherence Tomography
+								</a>
+
+								<a href="cancer.html" target="_blank" class="btnn btnn--flat"
+									style="font-size: 9pt; color:#00FF00;">
+									Breast Cancer Analysis
+								</a>
+
+								<!--<a href="https://issuu.com/data2dimensions/docs/data2dimensionsv1_19931d7bb2bcd0" >
+					  <figcaption> Click here for The Brochure</figcaption>
+					</a> -->
+							</p>
+
+						</div>
+						<!--div class="secondPart" style="float: right;">
+							<iframe class="frame" width="450" height="230" src="https://www.youtube.com/embed/NlpS-DhayQA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						</div-->
+
+					</div> <!-- /twelve -->
+
+					<div class="scroll-icon">
+
+						<p class="scroll-text">Click For More Info <br>
+							<font style="font-size:8pt;"> Press F11 to use as Screen Saver</font>
+						</p>
+						<!--   <a href="https://google.com" class="smoothscroll"> -->
+						<a href="http://www.data2dimensions.com">
+							<div class="mouse"></div>
+						</a>
+						<div class="end-top"></div>
+
+					</div> <!-- /scroll-icon -->
+				</div> <!-- /row -->
+
+			</div> <!-- /main-content -->
+
+		</div> <!-- /content-wrap -->
+
+	</section> <!-- /home -->
+
+	<!-- Java Script
+   ================================================== -->
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+<!--
+	<script>
+		$('[data-run]').click(function (e) {
+			e.preventDefault();
+
+			var app = $(this).data('run');
+
+			fetch('launch.php?run=' + app).then();
+
+		});
+	</script>
+-->
+</body>
+
+</html>
