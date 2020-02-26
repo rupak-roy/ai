@@ -5,7 +5,7 @@ var map = null;
 
     var val = $("#id_one").val();
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', "http://127.0.0.1:80", true);
+    xhr.open('POST', "http://35.223.9.111:80", true);
     var data = new FormData();
     data.append("type", val);
     if(val != "cancer")
@@ -36,46 +36,5 @@ var map = null;
     };
     xhr.send(data);
   }
-  function addPlaces(obj){  
-    $.each(obj, function(index, obj_){
-      console.log(obj_);
-      $("#hospital").append("<div><b>"+obj_["name"]+"</b><br>"+obj_["address"]+"</div><br><br><br>");
-    });
-  }
-  function initMap(){
-      var  kolkata= {lat: 22.567627, lng: 88.347444};
-  // The map, centered at Uluru
-    map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 10, center: kolkata});
-  }
-  function clear()
-  {
-    for(var i=markerArray.length-1; i>=0; i--){
-      markerArray[i].setMap(null);
-      markerArray.pop();
-    }
-    $("#hospital").html("");
-  }
-  function plotMap(places){
-    
-    $.each(places, function(index,obj){
-      if(map != null){
-        markerArray.push(new google.maps.Marker({"position": obj["location"], map: map}));
-      }
-    });
-  }
-  function changeText(button, text, textToChangeBackTo) {
-  buttonId = document.getElementById(button);
-  buttonId.textContent = text;
-  setTimeout(function() { back(buttonId, textToChangeBackTo); }, 10000);
-  function back(button, textToChangeBackTo){ button.textContent = textToChangeBackTo; }
-}
-function show_hide_cancer(){
-  if($("#id_one").val() == "cancer")
-    {$("#myDIV").show();
-    $("#file_").hide();}
-    else{
-      $("#myDIV").hide();
-    $("#file_").show();
-    }
-}
+ 
+ 
