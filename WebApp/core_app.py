@@ -449,4 +449,4 @@ def translate_vgg_16(preds):
   return total, prediction
 
 if __name__=="__main__":
-  app.run("0.0.0.0", 8080, debug = False)
+  app.run("34.69.165.234", 8080, debug = False)
